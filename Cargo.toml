@@ -1,5 +1,5 @@
 [package]
-name = "diesel_citext"
+name = "diesel-citext"
 version = "0.1.0"
 authors = ["Greg Elenbaas <me@gregelenbaas.com>"]
 edition = "2018"
