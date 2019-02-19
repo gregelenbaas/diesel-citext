@@ -57,6 +57,18 @@ impl PartialEq for CiString {
     }
 }
 
+impl PartialEq<String> for CiString {
+    fn eq(&self, other: &String) -> bool {
+        self.value == other.to_lowercase()
+    }
+}
+
+impl PartialEq<&str> for CiString {
+    fn eq(&self, other: &&str) -> bool {
+        self.value == other.to_lowercase()
+    }
+}
+
 impl Eq for CiString {
 
 }
