@@ -19,6 +19,7 @@ use actix_web::dev::FromParam;
 /// a hashmap as well as be written to the page. It implements a variety of traits
 /// to make it easy to convert from and to &str and String types.
 #[derive(Clone, Debug, Serialize, Deserialize, FromSqlRow, AsExpression)]
+#[sql_type = "Citext"]
 pub struct CiString {
     value: String,
 }
