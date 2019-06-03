@@ -15,15 +15,15 @@ use crate::sql_types::*;
 #[cfg(feature = "with-actix-web")]
 use actix_web::dev::FromParam;
 
-/// `CiString` is a CaseInsenstive String type that can be used as the key for
+/// `CiString` is a CaseInsensitive String type that can be used as the key for
 /// a hashmap as well as be written to the page. It implements a variety of traits
 /// to make it easy to convert from and to &str and String types.
 #[derive(Clone, Debug, Serialize, Deserialize, FromSqlRow, AsExpression)]
+#[serde(transparent)]
 #[sql_type = "Citext"]
 pub struct CiString {
     value: String,
 }
-
 
 impl CiString {
     pub fn new() -> Self {
@@ -34,7 +34,7 @@ impl CiString {
 }
 
 /// CiString can implement the FromParam trait from ActixWeb if "with-actix-web" is
-/// turned on in the Cargo.toml file. 
+/// turned on in the Cargo.toml file.
 #[cfg(feature = "with-actix-web")]
 impl FromParam for CiString {
     type Err = actix_web::error::UrlParseError;
